@@ -1,0 +1,63 @@
+.thumbnail img {
+    width: 100%;
+}
+.thumbnail  {
+    padding: 0;
+}
+.thumbnail .caption-full {
+   padding:9px;
+}
+#delete-form{
+    display:inline;
+    
+}
+
+/* Google Maps */
+#map {
+    height: 400px;
+    width: 100%;
+}
+.label{
+ color: blue;  
+ font-size: 1.5rem; 
+}
+.form-control{
+    border:solid 0.1em blue;
+    border-radius: 2em 2em 2em 2em;
+}
+.forgot{
+margin-left: 50%
+}
+#searchButton{
+ float: right;
+ margin-top: 0.5%;
+ margin-bottom: 0.5%;
+ margin-left: 1%
+ }
+
+ #viewPlace{
+    float: right;
+}
+#profilePicture{
+border-radius: 50%;
+margin-left: 16%;
+  }
+  #profileMail{
+ margin-left: 22%;
+  }
+  #profileName{
+    margin-left: 10%;
+    text-transform: uppercase;
+    font-size: 2em;
+    font-weight: bold;
+    color: rgb(127, 127, 245)
+  }
+  #profileCreatedby{
+    margin-left: 28%;
+    text-transform: initial;
+    font-size: 2em;
+    font-weight: bold;
+    color: rgb(127, 127, 245)
+  }
+  
+

@@ -1,0 +1,27 @@
+<% include ../partials/header %>
+
+<div class="row">
+	<div class="col-md-4">
+			<h1 id="profileName"><%= profile.firstName + " " + profile.lastName %></h1>
+		<div   >
+			<img  id="profilePicture" src="<%= profile.avatar %>" alt=" profile image">
+			<div id="profileMail" class="caption"><a href="mailto:<%= profile.email %>"><%= profile.email %></a></div>
+		</div>
+		<%= profile.bio %>
+	</div>
+	<div class="col-md-8">
+		<h3 id="profileCreatedby">All places created by <%= profile.username %></h3>
+		<ul>
+			<%places.forEach(function(place) {%>
+				<div class="thumbnail">
+				<img src="<%= place.image %>">
+				<h4><a href="/places/<%= place.id %>"><%= place.name %></a></h4>
+				</div>
+			<% }); %>
+		</div>
+            </ul>
+	</div>
+</div>
+
+
+<% include ../partials/footer %>

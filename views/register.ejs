@@ -1,0 +1,45 @@
+<% include ./partials/header %>
+<div class="row">
+        <h1 style="text-align: center">Sign Up</h1>
+        <div style="width: 30%; margin: 25px auto;">
+            <form action="/register" method="post" >
+                <div class="form-group">
+                        <strong><label class="label">First Name</label></strong> 
+                        <input class="form-control" type="text" name="firstName" placeholder="enter first name">
+                    </div>
+                    <div class="form-group">
+                            <strong><label class="label">Last Name</label></strong> 
+                            <input class="form-control" type="text" name="lastName" placeholder="enter last name ">
+                        </div>
+                        <div class="form-group">
+                                <strong><label class="label">Email</label></strong> 
+                                <input class="form-control" type="email" name="email" placeholder="enter your email">
+                            </div>
+                            <div class="form-group">
+                                    <strong><label class="label">Avatar Url</label></strong> 
+                                    <input class="form-control" id="avatar" type="avatar"   name= "avatar"  placeholder="enter avatar url">
+                                </div>
+                <div class="form-group">
+                    <strong><label class="label">Username</label></strong> 
+                    <input class="form-control" type="text" name="username" placeholder="enter username">
+                </div>
+                <div class="form-group">
+                <strong><label class="label">Password</label></strong> 
+                    <input class="form-control" type="password" name="password" placeholder="enter password">
+                </div>
+                <div class="form-group">
+                <strong><label class="label">Admin code:</label></strong> <em>only for authourised admin</em>
+                    <input class="form-control" type="password" name="adminCode" placeholder="enter admin code">
+                    </div>
+                    <div class="form-group">
+                            <strong><label class="label">Bio:</label></strong> <em>only for authourised admin</em>
+                                <input class="form-control" type="text" name="bio" placeholder="tell us about you">
+                                </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">Sign Up!</button>
+                </div>
+            </form>
+            <a href="/places">Go Back</a>
+        </div>
+    </div>
+<% include ./partials/footer %>
