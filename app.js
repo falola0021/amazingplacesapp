@@ -60,4 +60,4 @@ app.use(placeRoutes);
 app.use(authRoutes);
 app.use(landingRoutes);
 
-app.listen(3000 , function(){ console.log("app is working");});
+app.listen("port", process.env.PORT || 3000 , function(){ console.log("app is working");});
