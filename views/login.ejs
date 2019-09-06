@@ -1,25 +1,20 @@
 <% include ./partials/header %>
 <div class="row">
-        <h1 style="text-align: center">Login</h1>
-        <div style="width: 30%; margin: 25px auto;">
-            <form action="/login" method="post">
-                <div class="form-group">
-                    <strong><label class="label" >Login</label></strong> 
-                    <input class="form-control" type="text" name="username" placeholder="Enter username">
-                </div>
-                <div class="form-group">
-                    <strong><label class="label">Password</label></strong> 
-                    <input class="form-control" type="password" name="password" placeholder="Enter password">
-                </div>
-                <div class="form-group">
-                    <button class="btn btn-lg btn-primary btn-block">Login</button>
-                </div>
+        <div class="col-md-12">
+            <form class="form-signin" action="/login" method="POST">
+              <h1 class="h3 mb-3 font-weight-normal">Please Login </h1>
+              <label for="inputUsername" >Username</label>
+              <input type="text" id="inputUsername" class="form-control" name="username" placeholder="Username" required autofocus>
+              <label for="inputPassword" >Password</label>
+              <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required>
+
+              <button class="btn btn-lg btn-primary btn-block" type="submit"> Login</button>
             </form>
-            <div>
-            <a href="/places">Go Back</a>
-            <a class="forgot" href="/forgot">Forgot Password?</a>
-        </div>
+            <div class="form-signin">
+                <a href="/places">Go Back</a>
+                <a class="forgot" href="/forgot">Forgot Password?</a>
+            </div>
         </div>
     </div>
-
+                  
 <% include ./partials/footer %>

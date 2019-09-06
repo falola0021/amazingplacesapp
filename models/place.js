@@ -4,28 +4,48 @@ var mongoose = require("mongoose");
 var placeSchema = new mongoose.Schema({
   name: String,
   image: String,
-  imageId : String,
+  imageId: String,
   price: String,
-  description:String,
+  description: String,
   site: String,
-  location:String,
+  location: String,
   createdAt: { type: Date, default: Date.now },
   lat: Number,
-  lng:Number,
-  author:{
-    id:{
+  lng: Number,
+
+  author: {
+    id: {
       type: mongoose.Schema.Types.ObjectId,
-      ref:"User"
+      ref: "User"
+    },
+    username: String
   },
-  username: String
-  },
-  comments:[
+  comments: [
     {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Comment"
-    
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Comment"
+
     }
-    ]
+  ],
+
+  likes: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User"
+    }
+
+  ],
+
+  reviews: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Review"
+    }
+  ],
+  rating: {
+    type: Number,
+    default: 0
+  }
 });
 
 // create a model

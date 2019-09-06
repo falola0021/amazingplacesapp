@@ -1,43 +1,106 @@
 <% include ../partials/header %>
 
 <div class="container">
-    
+
     <header class="jumbotron">
         <div class="container">
             <h1>AMAZING PLACES!</h1>
             <p>View our random selection of beautiful places in Lagos</p>
             <p>
                 <a class="btn btn-primary btn-lg" href="places/new">Add New Place</a>
-                <a href="/places" id="viewPlace" class="btn btn-lg btn-primary">View All Places</a>   
+                <a href="/places" id="viewPlace" class="btn btn-lg btn-primary">View All Places</a>
             </p>
         </div>
     </header>
-    
-    <div class="row text-center" style="display: flex; flex-wrap: wrap;">
+
+    <div class="row text-center" style="display: flex; ">
 
         <% places.forEach(function(place){ %>
-            <div class="col-md-3 col-sm-6">
-                <div class="thumbnail">
-                    <img src="<%= place.image %>">
-                    <div class="caption">
-                        <h4><%= place.name %></h4>
+        <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
+            <div class="card">
+                <img class="card-img-top" src="<%= place.image %>" alt="<%= place.name %>" style="height: 200px">
+                <div class="caption">
+                    <h5  class="card-title" style="text-transform: uppercase"><%= place.name %></h5>
+                    <div>
+                        <span class="badge badge-dark mb-3"><i class="fas fa-thumbs-up"></i>
+                            <%= place.likes.length %></span>
                     </div>
-                    <p>
-                        <a href="/places/<%= place._id %>" class="btn btn-primary">More Info</a>
-                    </p>
                 </div>
+                <p>
+                <% if (place.rating === 0) { %>
+                <em>No reviews yet.</em>
+                <% } else { %>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star <% if (place.rating > 1.5) { %> checked <% } %>"></span>
+                <span class="fa fa-star <% if (place.rating > 2.5) { %> checked <% } %>"></span>
+                <span class="fa fa-star <% if (place.rating > 3.5) { %> checked <% } %>"></span>
+                <span class="fa fa-star <% if (place.rating > 4.5) { %> checked <% } %>"></span>
+                <% } %>
+                <p>
+                    
+                    <a href="/places/<%= place._id %>" class="btn btn-primary">More Info</a>
+                </p>
             </div>
+        </div>
         <% }); %>
     </div>
-    
+
 </div>
 
 <div class="container">
     <div class="col-md-12">
         <% if (noMatch !== undefined) { %>
-            <h3><%= noMatch %></h3>
+        <h3><%= noMatch %></h3>
         <% } %>
+        <div>
+         <nav aria-label="Page navigation " >
+                        <% if (pages && pages > 0) { %>
+                        <ul class="pagination justify-content-center" style="margin-bottom: 10%">
+                            <% if (current == 1) { %>
+                            <li class="page-item disabled"><a class="page-link">First</a></li>
+                            <% } else { %>
+                            <li ><a class="page-link" href="/places">First</a></li>
+                            <% } %>
+                     
+                            <% if (current == 1) { %>
+                            <li class="page-item disabled"><a class="page-link">«</a></li>
+                            <% } else { %>
+                            <li><a class="page-link" href="/places?page=<%= Number(current) - 1 %>">«</a></li>
+                            <% } %>
+                     
+                            <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+                            <% if (i !== 1) { %>
+                            <li class="page-item disabled"><a class="page-link">...</a></li>
+                            <% } %>
+                            <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+                            <% if (i == current) { %>
+                            <li class="active"><a class="page-link"><%= i %></a></li>
+                            <% } else { %>
+                            <li><a class="page-link" href="/places?page=<%= i %>"><%= i %></a></li>
+                            <% } %>
+                            <% if (i == Number(current) + 4 && i < pages) { %>
+                            <li class="page-item disabled"><a class="page-link">...</a></li>
+                            <% } %>
+                            <% } %>
+                     
+                            <% if (current == pages) { %>
+                            <li class="page-item disabled"><a class="page-link">»</a></li>
+                            <% } else { %>
+                            <li><a class="page-link" href="/places?page=<%= Number(current) + 1 %>">»</a></li>
+                            <% } %>
+                     
+                            <% if (current == pages) { %>
+                            <li class="page-item disabled"><a class="page-link">Last</a></li>
+                            <% } else { %>
+                            <li><a class="page-link" href="/places?page=<%= pages %>">Last</a></li>
+                            <% } %>
+                        </ul>
+                        <% } %>
+                    </nav>
+                </div>
     </div>
-</div>
+ 
 
 <% include ../partials/footer %>
+
+

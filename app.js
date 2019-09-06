@@ -8,10 +8,13 @@ var  methodOverride        = require("method-override");
 var  flash                 = require("connect-flash");
 app.locals.moment          = require('moment');
 
+var   seedDB               =  require("./seeds")
 var  commentRoutes         = require("./routes/comments");
 var  placeRoutes           = require("./routes/places");
 var  authRoutes            = require("./routes/auth");
 var  landingRoutes         = require("./routes/landing");
+var  reviewRoutes          = require("./routes/reviews");
+
 
 
 var  passport              = require("passport");
@@ -20,9 +23,20 @@ var  LocalStrategy         = require("passport-local");
 var  passportLocalMongoose = require("passport-local-mongoose");
 
     
-mongoose.connect("mongodb://localhost:27017/beautifulPlaces", {useNewUrlParser: true},function(err) {
-                if (err) { return console.error('mongoose not connecting')}
-                });
+// mongoose.connect("mongodb://localhost:27017/beautifulPlaces", {useNewUrlParser: true},function(err) {
+//                 if (err) { return console.error('mongoose not connecting')}
+//                 });
+ 
+// assign mongoose promise library and connect to database
+mongoose.Promise = global.Promise;
+
+const databaseUri = process.env.MONGODB_URI || "mongodb://localhost:27017/place";
+
+mongoose.connect(databaseUri, {useNewUrlParser: true})
+      .then(() => console.log(`Database connected`))
+      .catch(err => console.log(`Database connection error: ${err.message}`));
+
+
 mongoose.set("useCreateIndex", true) ;  //this is used to remove deprecation warning           
 
 app.set("view engine", "ejs");
@@ -30,6 +44,8 @@ app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(flash());
+
+//seedDB();
 
 //PASSPORT CONFIGURATION
 app.use(require("express-session")({ //require inline exp session
@@ -59,5 +75,6 @@ app.use(commentRoutes);
 app.use(placeRoutes);
 app.use(authRoutes);
 app.use(landingRoutes);
+app.use("/places/:id/reviews", reviewRoutes);
 
-app.listen("port", process.env.PORT || 3000 , function(){ console.log("app is working");});
+app.listen( 3000 , function(){ console.log("app is working");});
