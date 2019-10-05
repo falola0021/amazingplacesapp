@@ -30,7 +30,7 @@ var  passportLocalMongoose = require("passport-local-mongoose");
 // assign mongoose promise library and connect to database
 mongoose.Promise = global.Promise;
 
-const databaseUri = process.env.MONGODB_URI || "mongodb://localhost:27017/place";
+const databaseUri = "mongodb+srv://falola0021:dna0021@cluster0-vrmni.mongodb.net/admin?retryWrites=true&w=majority";
 
 mongoose.connect(databaseUri, {useNewUrlParser: true})
       .then(() => console.log(`Database connected`))
