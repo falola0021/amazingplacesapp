@@ -2,7 +2,7 @@
 <% include ../partials/header %>
 <div class="container">
     <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12 mt-5">
             <form class="form-signin" action="/places/<%= place._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
             <h1 class="h3 mb-3 font-weight-normal">Edit <%=  place.name %></h1>
                     <label for="text">Name</label>
@@ -17,7 +17,7 @@
                     <input class="form-control" type="text" name="location" id="location" value="<%= place.location %>">
                     <label for="inputtext">Main Site Link</label>
                     <input class="form-control" type="text" name="place[site]" id="site" value="<%= place.site %>">
-                     <button class="btn btn-lg btn-primary btn-block">Update</button>
+                     <button class="btn btn-lg btn-primary btn-block" style="margin-top: 7% ; border-radius: 20px 20px 20px 20px;">Update</button>
                 </form>
             <div class="form-signin">
                     <a href="/places">Go Back</a>

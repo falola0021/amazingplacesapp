@@ -6,6 +6,9 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>BeautifulPlaces</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,700i">
+       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400">
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -15,14 +18,14 @@
     <header>
       
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top  mb-60">
-    <a class="navbar-brand" href="/">BeautifulPlaces</a>
+    <a class="navbar-brand" href="/" style="color: #e99393""><strong>PLACE</strong> </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class=" navbar-nav mr-auto">
         <li  class="nav-item <%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>">
-          <a href="/places" class="nav-link active">Home</a>
+          <a href="/places" class="nav-link active"><i class="fas fa-home"></i> Home</a>
         </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
@@ -54,16 +57,16 @@
   </nav>
 </header>
 <section>
-  <div class="container">
+  <div class="container " >
      <% if(error && error.length > 0) { %>
-       <div class="alert alert-danger" role="alert"><%=error %></div>
+       <div class="alert alert-danger" style="margin-top: 6%" role="alert"><%=error %></div>
      <% } %>
      
      <% if(success && success.length > 0) { %>
-       <div class="alert alert-success" role="alert"><%= success %></div>
+       <div class="alert alert-success" style="margin-top: 6%" role="alert"><%=success %></div>
      <% } %>
   </div>
-  <div class="container">
+<div class="container">
 
 
 

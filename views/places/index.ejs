@@ -1,15 +1,68 @@
 <% include ../partials/header %>
 
-<div class="container">
+<div class="container" style="margin-top: 7%">
 
-    <header class="jumbotron">
-        <div class="container">
-            <h1>AMAZING PLACES!</h1>
-            <p>View our random selection of beautiful places in Lagos</p>
-            <p>
-                <a class="btn btn-primary btn-lg" href="places/new">Add New Place</a>
-                <a href="/places" id="viewPlace" class="btn btn-lg btn-primary">View All Places</a>
+    <header  >
+        
+        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+
+         
+            
+            <!-- The slideshow -->
+            <div class="carousel-inner" >
+              <div class="carousel-item active" >
+                <img  src="https://i.pinimg.com/originals/57/d9/54/57d954e06ccbae76081ca456f92ee9cd.jpg" style=" width: 1100px; height: 350px;object-fit: cover;" >
+                              
+                <div id="text" class="carousel-caption d-none d-md-block">
+                    <h1 style="font-weight: 900; color: #e99393;">LAGOS IS FUN WITH US</h1>
+                    <h3 style="font-weight: 400; color: #e99393">Let's take you on the lagos beautiful experience</h3>
+                  </div>
+              </div>
+              <div class="carousel-item">
+                <img src="http://penanghyperlocal.com/wp-content/uploads/2019/04/Gravity-2-1024x624.jpg" style=" width: 1100px; height: 350px;object-fit: cover;" >
+                <div id="text" class="carousel-caption d-none d-md-block">
+                    <h1 style="font-weight: 900; color:#f7f7f7">WE ARE THE CENTER OF EXCELLENCE</h1>
+                    <h3 style="font-weight: 400; color:#f7f7f7">Excellence is our standard</h3>
+                  </div>
+              </div>
+              <div class="carousel-item">
+                <img src="https://www.propertypro.ng/blog/wp-content/uploads/2016/10/3.jpg" style=" width: 1100px; height: 350px;object-fit: cover;" >
+                <div id="text" class="carousel-caption d-none d-md-block">
+                    <h1 style="font-weight: 900; color: #e99393">YOU CAN RELAX HERE</h1>
+                    <h3 style="font-weight: 400; color: #e99393">Let's treat you right</h3>
+                  </div>
+         </div>
+            
+         <div class="carousel-item">
+            <img src="https://i.pinimg.com/originals/3f/74/c0/3f74c03aec51c57d62de7bab09d31478.jpg" style=" width: 1100px; height: 350px;object-fit: cover;" >
+            <div id="text" class="carousel-caption d-none d-md-block">
+                <h1 style="font-weight: 900; color:white">EKO AROMI SA LEGBE LEGBE</h1>
+                <h3 style="font-weight: 400; color:white">We respect our culture</h3>
+              </div>
+     </div>
+     <div class="carousel-item">
+        <img src="https://www.ilubirin.ng/wp-content/uploads/2018/09/NG_LOS_IlubirinMP_A_9000-RENDER_02_Lagoon-1.jpg" style=" width: 1100px; height: 350px;object-fit: cover;" >
+        <div id="text" class="carousel-caption d-none d-md-block">
+            <h1 style="font-weight: 900; color:#e99393">WE HAVE THE RIDE</h1>
+            <h3 style="font-weight: 400; color:#e99393">You get the chills</h3>
+          </div>
+ </div>
+ <div class="carousel-item">
+        <img src="https://www.maisonfahrenheit.com/wp-content/uploads/2018/08/UNADJUSTEDNONRAW_thumb_6152.jpg" style=" width: 1100px; height: 350px;object-fit: cover;" >
+        <div id="text" class="carousel-caption d-none d-md-block">
+            <h1 style="font-weight: 900; color:white">WE WORK HARD</h1>
+            <h3 style="font-weight: 400; color:white">We are creative</h3>
+          </div>
+ </div>
+          </div>
+
+
+         <p style="background:  rgba(0,0,0,0.5); margin-top: 1%">
+                <a class="btn btn-dark btn-sm" href="places/new"  ><strong>Add New Place</strong> </a>
+                <a href="/places" id="viewPlace" class="btn btn-sm btn-dark" ><strong>View All Places</strong> </a>
             </p>
+        
+           
         </div>
     </header>
 
@@ -17,8 +70,8 @@
 
         <% places.forEach(function(place){ %>
         <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
-            <div class="card">
-                <img class="card-img-top" src="<%= place.image %>" alt="<%= place.name %>" style="height: 200px">
+            <div class="card" id="zoom" >
+                <img  class="card-img-top" src="<%= place.image %>"   alt="<%= place.name %>" style="height: 200px">
                 <div class="caption">
                     <h5  class="card-title" style="text-transform: uppercase"><%= place.name %></h5>
                     <div>
@@ -47,7 +100,7 @@
 
 </div>
 
-<div class="container">
+<div class="container" >
     <div class="col-md-12">
         <% if (noMatch !== undefined) { %>
         <h3><%= noMatch %></h3>
@@ -99,7 +152,9 @@
                     </nav>
                 </div>
     </div>
- 
+    
+
+    
 
 <% include ../partials/footer %>
 

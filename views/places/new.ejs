@@ -1,7 +1,7 @@
 <% include ../partials/header %>
 <div class="container">
     <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12 mt-5">
             <form class="form-signin" action="/places" method="POST" enctype="multipart/form-data">
             <h1 class="h3 mb-3 font-weight-normal">Add a new place</h1>
                     <label for="text">Name</label>
@@ -16,7 +16,7 @@
                     <input class="form-control" type="text" name="location" id="location" placeholder="Muritala Park,Lagos">
                     <label for="inputtext">Main Site Link</label>
                     <input class="form-control" type="text" name="place[site]" id="site" placeholder="add the link to main site">
-                     <button class="btn btn-lg btn-primary btn-block">Submit</button>
+                     <button class="btn btn-lg btn-primary btn-block" style="margin-top: 7% ; border-radius: 20px 20px 20px 20px;">Submit</button>
                 </form>
             <div class="form-signin">
                     <a href="/places">Go Back</a>

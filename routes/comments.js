@@ -68,6 +68,7 @@ router.put("/places/:id/comments/:comment_id",checkCommentOwnership, function(re
     if(err){
         res.redirect("back");
     }  else{
+        
         res.redirect("/places/" + req.params.id);
     }
  });
