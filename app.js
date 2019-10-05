@@ -77,4 +77,4 @@ app.use(authRoutes);
 app.use(landingRoutes);
 app.use("/places/:id/reviews", reviewRoutes);
 
-app.listen( 3000 , function(){ console.log("app is working");});
+app.listen( process.env.PORT , function(){ console.log("app is working");});
