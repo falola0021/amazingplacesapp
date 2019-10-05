@@ -30,7 +30,7 @@ var  passportLocalMongoose = require("passport-local-mongoose");
 // assign mongoose promise library and connect to database
 mongoose.Promise = global.Promise;
 
-const databaseUri = "mongodb+srv://falola0021:dna0021@cluster0-vrmni.mongodb.net/admin?retryWrites=true&w=majority";
+const databaseUri = "mongodb+srv://falola0021:dna0021@cluster0-vrmni.mongodb.net/places-app?retryWrites=true&w=majority";
 
 mongoose.connect(databaseUri, {useNewUrlParser: true})
       .then(() => console.log(`Database connected`))
@@ -77,4 +77,6 @@ app.use(authRoutes);
 app.use(landingRoutes);
 app.use("/places/:id/reviews", reviewRoutes);
 
-app.listen( process.env.PORT , function(){ console.log("app is working");});
+const port = process.env.PORT || 3000;
+
+app.listen( port , function(){ console.log("app is working");});
